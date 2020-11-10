@@ -21,4 +21,16 @@ describe "As a visitor" do
       expect(page).to have_content(jon.name)
     end
   end
+
+  it "I see the number of minors and aduts on the flight" do
+    airline = Airline.create!(name: "American Airlines")
+    flight_1 = airline.flights.create!(number: "123", date: "10/10/2020", departure_city: "Denver", arrival_city: "Las Vegas")
+    joe = flight_1.passengers.create!(name: "Joe Bob", age: 33)
+    jim = flight_1.passengers.create!(name: "Jim Bob", age: 14)
+    jon = flight_1.passengers.create!(name: "Jon Bob", age: 12)
+    visit "/flights/#{flight_1.id}"
+
+    expect(page).to have_content(flight_1.num_of_adults)
+    expect(page).to have_content(flight_1.num_of_minors)
+  end
 end

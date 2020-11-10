@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 2020_11_10_162701) do
     t.string "arrival_city"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "airline_id"
     t.index ["airline_id"], name: "index_flights_on_airline_id"
   end
 

@@ -15,3 +15,6 @@
 <% @flight.passengers.each do |passenger| %>
   <%= passenger.name %>
 <% end %>
+
+<h3>Number of Adults: <%= @flight.num_of_adults %> </h3>
+<h3>Number of Adults: <%= @flight.num_of_minors %> </h3>
