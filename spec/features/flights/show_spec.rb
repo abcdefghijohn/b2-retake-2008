@@ -14,7 +14,7 @@ describe "As a visitor" do
       expect(page).to have_content(flight_1.date)
       expect(page).to have_content(flight_1.departure_city)
       expect(page).to have_content(flight_1.arrival_city)
-      expect(page).to have_content(flight_1.airline.name)
+      expect(page).to have_content(airline.name)
 
       expect(page).to have_content(joe.name)
       expect(page).to have_content(jim.name)
