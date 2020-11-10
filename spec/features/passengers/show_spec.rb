@@ -27,6 +27,4 @@ describe "As a visitor" do
     click_on("Submit")
     expect(page).to have_content("456")
   end
-
-  it "I click 'Submit' and I am redirected to the passenger show page and I can see the new flight number"
 end

@@ -8,14 +8,15 @@ class FlightsController < ApplicationController
   end
 
   def create
-    airline = Airline.all.first.id
+    @airline = Airline.all.first
     passenger = Passenger.find(params[:passenger_id])
-    passenger.flights.create!(flight_params)
-    render :new
-  end
-
-  private
-  def flight_params
-    params.permit(:number, :date, :departure_city, :arrival_city, :airline_id)
+    passenger.flights.create!({
+      number: params[:flight_number],
+      date: params[:date],
+      departure_city: params[:departure_city],
+      arrival_city: params[:arrival_city],
+      airline_id: @airline.id
+      })
+    redirect_to "/passengers/#{passenger.id}"
   end
 end
